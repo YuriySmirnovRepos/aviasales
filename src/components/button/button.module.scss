@@ -1,0 +1,24 @@
+.show-more-button {
+    grid-area: button;
+    color: white;
+    height: 50px;
+    text-transform: uppercase;
+    cursor: url('../../assets/cursor.svg'), auto;
+    padding: 15px 20px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    width:100%;
+    transition: 0.2s ease-in-out background-color;
+    &:hover {
+        background-color: #1E88E5;
+    }
+    &:active {
+        background-color: #1976D2;
+    }   
+    &:disabled {
+        background-color: #B3B3B3;
+        cursor: default;
+    }
+}

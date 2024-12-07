@@ -1,0 +1,39 @@
+$bg-color : #F3F7FA;
+body {
+  margin: 0;
+  font-family: 'Open sans', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+}
+
+.app {
+  background-color: $bg-color;
+  min-width: 335px;
+  padding-bottom:50px;
+}
+
+.container {
+  max-width: 754px;
+  margin: 0 auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: max-content 3fr;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-areas: "filter sort"
+  "filter ticket-list"
+  ". button";
+  gap:20px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "filter"
+    "sort"
+    "ticket-list"
+    "button";
+  }
+}

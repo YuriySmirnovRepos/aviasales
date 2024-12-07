@@ -1,0 +1,71 @@
+.ticket{
+    height: 184px - 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease-in-out box-shadow;
+    background-color: white;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__price {
+        text-align: center;
+        color: #2196F3;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0px;
+    }
+    &__segments {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & .ticket-segment {
+            display: grid;
+            grid-template-areas: "origin duration-title stops"
+            "date duration .";
+            grid-template-columns: 1fr 1fr 1fr;
+
+            &__origin, &__duration-title, &__stops {
+                grid-area: origin;
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 18px;
+                color: #A0B0B9;
+                text-transform: uppercase;
+                text-align: left;
+            }
+            &__date, &__duration {
+                grid-area: date;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 21px;
+                letter-spacing: 0;
+                color: #1E1E1E;
+            }
+            &__duration {
+                grid-area: duration;
+            }
+            &__duration-title {
+                grid-area: duration-title;
+            }
+            &__stops {
+                grid-area: stops;
+            }
+        }
+    }
+    &:hover {
+        cursor: url('../../assets/cursor.svg'), auto;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+}

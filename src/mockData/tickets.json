@@ -1,0 +1,100 @@
+[
+    {
+        "id": 1,
+        "price": 1000,
+        "carrier": "Air France",
+        "segments": [
+            {
+            "origin": "Москва",
+            "destination": "Париж",
+            "duration": 3,
+            "stops": 1,
+            "date": "2023-03-15"
+            },
+            {
+            "origin": "Париж",
+            "destination": "Лондон",
+            "duration": 2,
+            "stops": 0,
+            "date": "2023-03-16"
+            }
+        ]
+        },
+        {
+        "id": 2,
+        "price": 800,
+        "carrier": "Lufthansa",
+        "segments": [
+            {
+            "origin": "Москва",
+            "destination": "Франкфурт",
+            "duration": 2,
+            "stops": 0,
+            "date": "2023-03-15"
+            },
+            {
+            "origin": "Франкфурт",
+            "destination": "Лондон",
+            "duration": 1,
+            "stops": 0,
+            "date": "2023-03-16"
+            }
+        ]
+        },
+        {
+        "id": 3,
+        "price": 1200,
+        "carrier": "British Airways",
+        "segments": [
+            {
+            "origin": "Москва",
+            "destination": "Лондон",
+            "duration": 4,
+            "stops": 1,
+            "date": "2023-03-15"
+            }
+        ]
+        },
+        {
+        "id": 4,
+        "price": 900,
+        "carrier": "Air France",
+        "segments": [
+            {
+            "origin": "Москва",
+            "destination": "Париж",
+            "duration": 3,
+            "stops": 1,
+            "date": "2023-03-15"
+            },
+            {
+            "origin": "Париж",
+            "destination": "Лондон",
+            "duration": 2,
+            "stops": 0,
+            "date": "2023-03-16"
+            }
+        ]
+        },
+        {
+        "id": 5,
+        "price": 700,
+        "carrier": "Lufthansa",
+        "segments": [
+            {
+            "origin": "Москва",
+            "destination": "Франкфурт",
+            "duration": 2,
+            "stops": 0,
+            "date": "2023-03-15"
+            },
+            {
+            "origin": "Франкфурт",
+            "destination": "Лондон",
+            "duration": 1,
+            "stops": 0,
+            "date": "2023-03-16"
+            }
+        ]
+        }
+]
