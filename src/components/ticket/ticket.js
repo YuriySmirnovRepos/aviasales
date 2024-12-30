@@ -1,5 +1,8 @@
 import styles from './ticket.module.scss';
-import carrierPic from '../../assets/carrier-s7.svg';
+import React from 'react';
+import Segment from '../segment/segment';
+
+import carrierPic from '../../assets/carriers/s7.svg';
 
 export default function Ticket({ id, price, carrier, segments }) {
     return (
@@ -10,21 +13,7 @@ export default function Ticket({ id, price, carrier, segments }) {
             </div>
             <ul className={styles['ticket__segments']}>
                 {segments.map((segment, index) => (
-                    <li key={index} className={styles['ticket-segment']}>
-                        <span className={styles['ticket-segment__origin']}>
-                            {segment.origin} - {segment.destination}
-                        </span>
-                        <span className={styles['ticket-segment__duration-title']}>в пути</span>
-                        <span className={styles['ticket-segment__duration']}>
-                            {segment.duration} ч
-                        </span>
-                        <span className={styles['ticket-segment__stops']}>
-                            {segment.stops} пересадки
-                        </span>
-                        <span className={styles['ticket-segment__date']}>
-                            {segment.date}
-                        </span>
-                    </li>
+                    <Segment key={index} {...segment} />
                 ))}
             </ul>
         </li>

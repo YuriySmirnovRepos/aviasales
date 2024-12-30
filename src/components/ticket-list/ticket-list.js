@@ -1,31 +1,34 @@
 import styles from './ticket-list.module.scss';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Ticket from '../ticket';
+import CryptoJS from 'crypto-js';
 
-export default React.memo(function TicketList({tickets = []}) {
-    return (
-        <ul className={styles['ticket-list']}>
-            {tickets.map(ticket => (
-                <Ticket
-                    key={ticket.id}
-                    id={ticket.id}
-                    price={ticket.price}
-                    carrier={ticket.carrier}
-                    segments={ticket.segments}
-                />
-            ))}
-        </ul>
-    );
-}, (prev, next) => prev.tickets.length === next.tickets.length && prev.tickets.every((ticket, index) => (
-    ticket.id === next.tickets[index].id &&
-    ticket.price === next.tickets[index].price &&
-    ticket.carrier === next.tickets[index].carrier &&
-    ticket.segments.length === next.tickets[index].segments.length &&
-    ticket.segments.every((segment, index) => (
-        segment.origin === next.tickets[index].segments.origin &&
-        segment.destination === next.tickets[index].segments.destination &&
-        segment.date === next.tickets[index].segments.date &&
-        segment.stops === next.tickets[index].segments.stops &&
-        segment.duration === next.tickets[index].segments.duration
-    ))
-)));
+// Функция для генерации хэша из данных билета
+const generateTicketHash = (ticket) => {
+	const dataString = `${ticket.price}-${ticket.carrier}-${ticket.segments
+		.map((segment) => segment.stops)
+		.join('-')}`;
+	return CryptoJS.MD5(dataString).toString();
+};
+
+export default function TicketList({ tickets = [] }) {
+
+    const ticketsWithHashes = useMemo(() => {
+			return tickets.slice(0, 5).map((ticket) => ({
+				...ticket,
+				hash: generateTicketHash(ticket),
+			}));
+		}, [tickets]);
+
+	return (
+		<ul className={styles['ticket-list']}>
+			{ticketsWithHashes.map((ticket) => (
+				<Ticket
+                    key={ticket.hash}
+                    id={ticket.hash}
+                    {...ticket}
+				/>
+			))}
+		</ul>
+	);
+}

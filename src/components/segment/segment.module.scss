@@ -1,0 +1,23 @@
+.segment {
+    /* Стили для сегмента билета */
+        display: grid;
+        grid-template-areas: "origin duration-title stops"
+        "date duration .";
+        grid-template-columns: 1fr 1fr 1fr;
+
+    &__info{
+        /* Стили для информации о сегменте */
+    }
+    &__route{
+        /* Стили для маршрута */
+    }
+    &__duration{
+        /* Стили для времени */
+    }
+    &__stops{
+        /* Стили для количества пересадок */
+    }
+    &__date{
+        /* Стили для даты */
+    }
+}

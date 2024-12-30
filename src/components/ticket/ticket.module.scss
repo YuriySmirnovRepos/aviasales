@@ -27,39 +27,6 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        & .ticket-segment {
-            display: grid;
-            grid-template-areas: "origin duration-title stops"
-            "date duration .";
-            grid-template-columns: 1fr 1fr 1fr;
-
-            &__origin, &__duration-title, &__stops {
-                grid-area: origin;
-                font-weight: 600;
-                font-size: 12px;
-                line-height: 18px;
-                color: #A0B0B9;
-                text-transform: uppercase;
-                text-align: left;
-            }
-            &__date, &__duration {
-                grid-area: date;
-                font-weight: 600;
-                font-size: 14px;
-                line-height: 21px;
-                letter-spacing: 0;
-                color: #1E1E1E;
-            }
-            &__duration {
-                grid-area: duration;
-            }
-            &__duration-title {
-                grid-area: duration-title;
-            }
-            &__stops {
-                grid-area: stops;
-            }
-        }
     }
     &:hover {
         cursor: url('../../assets/cursor.svg'), auto;
