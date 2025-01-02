@@ -1,21 +1,36 @@
-import styles from './ticket.module.scss';
-import React from 'react';
-import Segment from '../segment/segment';
+import React from "react";
+import { v4 as uuidv4 } from "uuid";
 
-import carrierPic from '../../assets/carriers/s7.svg';
+import TicketSegment from "../ticket-segment/ticket-segment";
 
-export default function Ticket({ id, price, carrier, segments }) {
-    return (
-        <li key={id} className={styles['ticket']}>
-            <div className={styles['ticket__header']}>
-                <span className={styles['ticket__price']}>{price} Р</span>
-                <img src={carrierPic} alt="carrier" className={styles['ticket__carrier']} />
-            </div>
-            <ul className={styles['ticket__segments']}>
-                {segments.map((segment, index) => (
-                    <Segment key={index} {...segment} />
-                ))}
-            </ul>
-        </li>
-    );
+import styles from "./ticket.module.scss";
+
+export default function Ticket({id, price, carrier, segments }) {
+  const carrierPicSrc = `//pics.avs.io/99/36/${carrier}.png`;
+  return (
+    <li key={id} className={styles.ticket}>
+      <div className={styles.ticket__header}>
+        <span className={styles.ticket__price}>
+          {price.toLocaleString("ru-RU")} Р
+        </span>
+        <img
+          src={carrierPicSrc}
+          alt="carrier"
+          className={styles.ticket__carrier}
+        />
+      </div>
+      <ul className={styles.ticket__segments}>
+        {segments.map((segment) => (
+          <TicketSegment
+            key={uuidv4()}
+            origin={segment.origin}
+            destination={segment.destination}
+            date={segment.date}
+            stops={segment.stops}
+            duration={segment.duration}
+          />
+        ))}
+      </ul>
+    </li>
+  );
 }

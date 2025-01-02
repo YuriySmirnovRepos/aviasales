@@ -1,17 +1,9 @@
 $bg-color : #F3F7FA;
-body {
-  margin: 0;
-  font-family: 'Open sans', sans-serif;
-  font-style: normal;
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 0.5px;
-}
-
 .app {
   background-color: $bg-color;
   min-width: 575px;
   padding-bottom:50px;
+  min-height: calc(100vh - 50px);
 }
 
 .container {

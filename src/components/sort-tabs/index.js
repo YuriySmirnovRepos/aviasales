@@ -1,3 +1,3 @@
-import SortTabs from './sort-tabs'
+import SortTabs from "./sort-tabs";
 
 export default SortTabs;
